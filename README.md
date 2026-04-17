@@ -54,6 +54,8 @@ MONGO_URI=mongodb://localhost:27017/mongoose-api
 # MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/dbname
 ```
 
+Note: the app loads `config/.env` directly. If `MONGO_URI` is unavailable or fails to connect, the server will also try a local fallback database at `mongodb://localhost:27017/mongoose-api-local`.
+
 4. Start the server:
 ```bash
 node server.js
@@ -218,6 +220,8 @@ PORT=3000
 MONGO_URI=mongodb://localhost:27017/mongoose-api
 ```
 
+If your Atlas connection fails, the server will attempt a fallback to local MongoDB at `mongodb://localhost:27017/mongoose-api-local`.
+
 **For MongoDB Atlas**:
 ```
 MONGO_URI=mongodb+srv://username:password@cluster-name.mongodb.net/database-name?retryWrites=true&w=majority
@@ -243,6 +247,9 @@ MONGO_URI=mongodb+srv://username:password@cluster-name.mongodb.net/database-name
 ## Running the Project
 
 ```bash
+## Start the server
+npm start
+
 # Development
 node server.js
 
